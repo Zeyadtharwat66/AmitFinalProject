@@ -1,0 +1,16 @@
+# Jupyter
+.ipynb_checkpoints/
+
+# Python
+__pycache__/
+*.py[cod]
+
+# Model / experiment outputs
+runs/
+weights/
+*.pt
+*.onnx
+
+# Local datasets
+face-mask-data/
+yolov5/
