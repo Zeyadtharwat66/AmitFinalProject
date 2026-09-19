@@ -43,6 +43,10 @@ Open the notebook with Jupyter:
 jupyter notebook
 ```
 
+## ✅ Validation
+
+GitHub Actions validates the notebook structure on every push and pull request.
+
 ## ▶️ Running the Project
 
 Open:
