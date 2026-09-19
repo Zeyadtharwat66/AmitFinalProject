@@ -1,0 +1,28 @@
+name: Notebook Validation
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Validate notebook JSON
+        run: python - <<'PY'
+import json
+from pathlib import Path
+
+path = Path("fine-tuning-yolov5l-for-face-mask-detection.ipynb")
+with path.open(encoding="utf-8") as file:
+    notebook = json.load(file)
+
+assert notebook.get("nbformat") in (4, 5)
+assert isinstance(notebook.get("cells"), list)
+print(f"Validated {len(notebook['cells'])} notebook cells")
+PY
